@@ -4,6 +4,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,18 +16,56 @@ public class PlayerMovement : MonoBehaviour
     float sanityDecreasePerSecond = 3;
     float sanityGainPerSecond = 5;
     public GameObject sanityTextObject;
-    TMP_Text sanityTextComponent;
     public Light2D redLight;
+    public Slider sanitySlider;
+    HelperScript helper;
 
     void Start()
     {
-        sanityTextComponent = sanityTextObject.GetComponent<TMP_Text>();
+        helper = gameObject.AddComponent<HelperScript>();
+
+        sanitySlider.value = 100;
         moveAction = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        ManageSanity();
+        Move();
+    }
+
+    void Move()
+    {
+        Vector2 moveVel = moveAction.ReadValue<Vector2>();
+        rb.linearVelocity = new Vector2(moveVel.x * playerSpeed, moveVel.y * playerSpeed);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Door"))
+        {
+            helper.LoadNextScene();
+        }
+        else if (collision.CompareTag("Lamp"))
+        {
+            nearLamp = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lamp"))
+        {
+            nearLamp = false;
+        }
+    }
+    void Die()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+    void ManageSanity()
     {
         if (!nearLamp)
         {
@@ -43,34 +82,6 @@ public class PlayerMovement : MonoBehaviour
             Die();
             return;
         }
-        //redLight.pointLightOuterRadius = Mathf.Clamp(30f - (sanityValue / 2f), 0f, 50f);
-
-        sanityTextComponent.text = Mathf.Round(sanityValue).ToString();
-        Vector2 moveVel = moveAction.ReadValue<Vector2>();
-        rb.linearVelocity = new Vector2(moveVel.x * playerSpeed, moveVel.y * playerSpeed);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Door"))
-        {
-            print("You win!");
-        }
-        else if (collision.CompareTag("Lamp"))
-        {
-            nearLamp = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Lamp"))
-        {
-            nearLamp = false;
-        }
-    }
-    void Die()
-    {
-        print("Dead!!");
-        SceneManager.LoadScene("SampleScene");
+        sanitySlider.value = sanityValue;
     }
 }
