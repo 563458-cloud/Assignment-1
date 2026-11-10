@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     InputAction moveAction;
     Rigidbody2D rb;
-    float playerSpeed = 2;
+    float playerSpeed = 20;
     float sanityValue = 100;
     bool nearLamp = false;
     float sanityDecreasePerSecond = 3;
@@ -19,9 +19,13 @@ public class PlayerMovement : MonoBehaviour
     public Light2D redLight;
     public Slider sanitySlider;
     HelperScript helper;
+    private Animator animator;
+    float lastInputX = 0;
+    float lastInputY = -1;
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         helper = gameObject.AddComponent<HelperScript>();
 
         sanitySlider.value = 100;
@@ -39,9 +43,24 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         Vector2 moveVel = moveAction.ReadValue<Vector2>();
-        rb.linearVelocity = new Vector2(moveVel.x * playerSpeed, moveVel.y * playerSpeed);
+        Vector2 normalizedMovement = moveVel.normalized;
+        rb.linearVelocity = normalizedMovement * playerSpeed;
+        bool isWalking = moveVel.magnitude > 0.01f;
 
-    }
+        animator.SetBool("isWalking", isWalking);
+        if (isWalking){
+        lastInputY = moveVel.y;
+        lastInputX = moveVel.x;
+        animator.SetFloat("inputX", moveVel.x);
+        animator.SetFloat("inputY", moveVel.y);
+    }   else
+            {
+                animator.SetFloat("lastInputX",lastInputX);
+
+                animator.SetFloat("lastInputY",lastInputY);
+             }
+
+        }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
