@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     InputAction moveAction;
     Rigidbody2D rb;
-    float playerSpeed = 3;
+    float playerSpeed = 2;
     float sanityValue = 100;
     bool nearLamp = false;
     float sanityDecreasePerSecond = 3;
