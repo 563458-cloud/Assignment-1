@@ -9,10 +9,15 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     InputAction moveAction;
+    InputAction sprintAction;
     Rigidbody2D rb;
     float playerSpeed = 2;
+    float sprintMult = 5f;
     float sanityValue = 100;
     bool nearLamp = false;
+    bool isSprinting = false;
+    float stamina = 100;
+    float staminaDecreasePerSecond = 10;
     float sanityDecreasePerSecond = 3;
     float sanityGainPerSecond = 5;
     public GameObject sanityTextObject;
@@ -22,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     float lastInputX = 0;
     float lastInputY = -1;
+    
 
     void Start()
     {
@@ -30,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         sanitySlider.value = 100;
         moveAction = InputSystem.actions.FindAction("Move");
+        sprintAction = InputSystem.actions.FindAction("Sprint");
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,10 +49,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+
+
         Vector2 moveVel = moveAction.ReadValue<Vector2>();
         Vector2 normalizedMovement = moveVel.normalized;
-        rb.linearVelocity = normalizedMovement * playerSpeed;
         bool isWalking = moveVel.magnitude > 0.01f;
+        isSprinting = sprintAction.IsPressed();
+
+        float currentSpeed = isSprinting ? playerSpeed * sprintMult : playerSpeed;
+        rb.linearVelocity = normalizedMovement * currentSpeed;
+
+
 
         animator.SetBool("isWalking", isWalking);
         if (isWalking){
@@ -61,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
              }
 
         }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
