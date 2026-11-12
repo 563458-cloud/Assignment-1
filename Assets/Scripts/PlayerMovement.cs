@@ -5,6 +5,17 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+
+/*
+    TODO:
+    collectable items
+    sprinting
+    jumpscare
+    cinemachine camera lagging behind
+
+ 
+ */
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
