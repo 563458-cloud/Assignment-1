@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     float sanityValue = 100;
     bool nearLamp = false;
     bool isSprinting = false;
+    bool canSprint = true;
     float stamina = 100;
     float staminaDecreasePerSecond = 25;
     float staminaGainPerSecond = 1;
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveVel = moveAction.ReadValue<Vector2>();
         Vector2 normalizedMovement = moveVel.normalized;
         bool isWalking = moveVel.magnitude > 0.01f;
-        isSprinting = sprintAction.IsPressed() && stamina > 0 && isWalking;
+        isSprinting = sprintAction.IsPressed() && stamina > 0 && isWalking && canSprint;
 
         if (isSprinting)
         {
@@ -120,12 +121,20 @@ public class PlayerMovement : MonoBehaviour
         {
             nearLamp = true;
         }
+        else if (collision.CompareTag("NoSprint"))
+        {
+            canSprint = false;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Lamp"))
         {
             nearLamp = false;
+        }
+        else if (collision.CompareTag("NoSprint"))
+        {
+            canSprint = true;
         }
     }
     void Die()
