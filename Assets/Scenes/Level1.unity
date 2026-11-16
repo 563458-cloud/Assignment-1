@@ -1063,6 +1063,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281430072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1150077314773374212, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
+  m_PrefabInstance: {fileID: 3747329854526454691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!114 &1304547834 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8425133820332621213, guid: 84b0d8c1a4ce8b343aee325186df77fa, type: 3}
@@ -49360,7 +49371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150077314773374212, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_Direction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2188815549171597022, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -49370,25 +49381,33 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3855441205162242475, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 283.99997
-      objectReference: {fileID: 0}
     - target: {fileID: 4070102528706096674, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4070102528706096674, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4663536614779244206, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 4663536614779244206, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_SizeDelta.y
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4663536614779244206, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.3186953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663536614779244206, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663536614779244206, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 288
+      value: 116.8
       objectReference: {fileID: 0}
     - target: {fileID: 7211404182638072086, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -49400,19 +49419,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7211404182638072086, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5.074997
+      value: -5.075012
       objectReference: {fileID: 0}
     - target: {fileID: 7211404182638072086, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659425624618550710, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
+      propertyPath: m_Name
+      value: Stamina Slider
       objectReference: {fileID: 0}
     - target: {fileID: 7879364491937283612, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
       propertyPath: m_Name
       value: StaminaCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6826200755687384107, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0381d579f8d49b2488f190b92cf5283a, type: 3}
@@ -49427,6 +49449,14 @@ PrefabInstance:
     - target: {fileID: 3099946254361026063, guid: 84b0d8c1a4ce8b343aee325186df77fa, type: 3}
       propertyPath: m_Name
       value: SanityCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3420936918921206748, guid: 84b0d8c1a4ce8b343aee325186df77fa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432199601195664466, guid: 84b0d8c1a4ce8b343aee325186df77fa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 5043815452619186582, guid: 84b0d8c1a4ce8b343aee325186df77fa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -49573,18 +49603,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2173942679071493259, guid: 1b9929bf08544234dade2022759b3dc9, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8066038
-      objectReference: {fileID: 0}
-    - target: {fileID: 2173942679071493259, guid: 1b9929bf08544234dade2022759b3dc9, type: 3}
-      propertyPath: m_Color.g
-      value: 0.81647027
-      objectReference: {fileID: 0}
-    - target: {fileID: 2173942679071493259, guid: 1b9929bf08544234dade2022759b3dc9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4104855384969723386, guid: 1b9929bf08544234dade2022759b3dc9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -49593,6 +49611,10 @@ PrefabInstance:
       propertyPath: sanitySlider
       value: 
       objectReference: {fileID: 1304547834}
+    - target: {fileID: 4192192264128972745, guid: 1b9929bf08544234dade2022759b3dc9, type: 3}
+      propertyPath: staminaSlider
+      value: 
+      objectReference: {fileID: 1281430072}
     - target: {fileID: 4192192264128972745, guid: 1b9929bf08544234dade2022759b3dc9, type: 3}
       propertyPath: sanityTextObject
       value: 

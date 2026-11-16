@@ -1151,7 +1151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 198}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092576676
@@ -1843,7 +1843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 114.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079446053
@@ -1866,11 +1866,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nGame Guide\n\n\u2022 Controls: Use WASD or Arrow Keys to move in 4 directions.\n\u2022
-    Goal: Find the exit door before your sanity meter hits zero.\n\u2022 Sanity &
-    Lamps: Darkness drains your sanity over time. Stand near lit lamps to stop the
-    drain and recharge your meter.\n\u2022 Tip: Memorise lamp locations as landmarks
-    so you always have a safe spot to retreat to while exploring.\n"
+  m_text: "\nGame Guide\n\n\u2022 Controls: Use WASD or Arrow Keys to move in 4 directions,
+    sprint with Shift.\n\u2022 Goal: Find the exit door before your sanity meter
+    hits zero.\n\u2022 Sanity & Lamps: Darkness drains your sanity over time. Stand
+    near lit lamps to stop the drain and recharge your meter.\n\u2022 Stamina: Try
+    not to sprint too much as stamina drains much faster than it recovers.\n\u2022
+    Tip: Memorise lamp locations as landmarks so you always have a safe spot to retreat
+    to while exploring.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
