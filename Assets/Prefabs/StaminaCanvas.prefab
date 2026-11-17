@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 6757660596567417821}
   - component: {fileID: 3343032419847377755}
   m_Layer: 5
-  m_Name: Sanity Image
+  m_Name: Stamina Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

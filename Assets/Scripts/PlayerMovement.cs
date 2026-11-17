@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     float playerSpeed = 2;
     float sprintMult = 2;
-    float sanityValue = 100;
+    public float sanityValue = 100;
     bool nearLamp = false;
     bool isSprinting = false;
     bool canSprint = true;
@@ -30,18 +30,22 @@ public class PlayerMovement : MonoBehaviour
     float staminaGainPerSecond = 1;
     float sanityDecreasePerSecond = 3;
     float sanityGainPerSecond = 5;
-    public GameObject sanityTextObject;
-    public Light2D redLight;
     public Slider sanitySlider;
     public Slider staminaSlider;
     HelperScript helper;
     private Animator animator;
     float lastInputX = 0;
     float lastInputY = -1;
-    
-
+    public AudioSource normalMusic;
+    public AudioSource lowSanityMusic;    
+    float musicMultiplier = 0.3f;
     void Start()
+
+
+
     {
+        normalMusic.Play();
+        lowSanityMusic.Play();
         animator = GetComponentInChildren<Animator>();
         helper = gameObject.AddComponent<HelperScript>();
 
@@ -57,8 +61,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ManageSanity();
+        HandleMusic();
         Move();
     }
+
+    void HandleMusic()
+    {
+        float sanityPercent = Mathf.InverseLerp(20f, 80f, sanityValue);
+
+        normalMusic.volume = sanityPercent * musicMultiplier;
+        lowSanityMusic.volume = (1 - sanityPercent) * musicMultiplier;
+
+    }    
 
     void Move()
     {

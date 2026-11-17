@@ -1872,7 +1872,7 @@ MonoBehaviour:
     near lit lamps to stop the drain and recharge your meter.\n\u2022 Stamina: Try
     not to sprint too much as stamina drains much faster than it recovers.\n\u2022
     Tip: Memorise lamp locations as landmarks so you always have a safe spot to retreat
-    to while exploring.\n"
+    to while exploring.\n\u2022 Headphones reccomended."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
